@@ -25,4 +25,7 @@ mybatis:
     mapper-locations: classpath:mapper/*.xml
 
 #设置静态资源路径，多个以逗号分隔
-spring.resources.static-locations: classpath:static/,file:static/
+spring.resources.static-locations: classpath:static/,file:static/,file:E:/test3
+ckeditor:
+  image-file-Path: upload
+  application-path: upload

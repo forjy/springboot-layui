@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head th:include="layout :: htmlhead" th:with="title='管理'">
+</head>
+<script src="/ckeditor/ckeditor.js"></script>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <!--头-->
+    <div th:replace="fragments/head :: header"></div>
+
+    <div class="layui-body" style="margin: 1%">
+        <form>
+            <textarea name="editor1" id="editor1" rows="10" cols="80">
+                This is my textarea to be replaced with CKEditor 4.
+            </textarea>
+            <div align="center">
+                <input type="button" onclick="buttonSubmit()" style="width: 60px;height: 35px;" value="提交表单"/>
+            </div>
+            <div id="editorBack">
+
+            </div>
+            <script>
+                // Replace the <textarea id="editor1"> with a CKEditor 4
+                // instance, using default configuration.
+                CKEDITOR.replace( 'editor1' );
+                function buttonSubmit() {
+                    var a = CKEDITOR.instances.editor1.getData();
+                    console.log(a);
+                    $("#editorBack").html(a);
+                }
+            </script>
+        </form>
+    </div>
+
+
+    <!--底部-->
+    <div th:replace="fragments/footer :: footer"></div>
+
+
+</div>
+</body>
+</html>
